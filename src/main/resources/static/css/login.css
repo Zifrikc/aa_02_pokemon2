@@ -1,0 +1,76 @@
+.example-card {
+    max-width: 5px;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+}
+
+.bg{
+
+   /* background-image: url("https://res.cloudinary.com/tecnologi-zifrikc/video/upload/v1684913967/bathhouse-spirited-away-moewalls.com_km1wa2.mp4");*/
+    background-color:rgb(222, 28, 252)
+}
+.row{
+    position: relative;
+    margin-top: 45px;
+    margin-left: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('');
+    border-radius: 30px;
+    box-shadow: 22px 25px 32px;
+}
+.login img{
+    border-top-left-radius:30px;
+    border-bottom-left-radius:30px;
+
+}
+.login h1{
+
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Alfa Slab One', cursive;
+    color: yellow;
+}
+.inp{
+    height:50px;
+    width:90%;
+    border:none;
+    outline:none;
+    border-radius:60px;
+    box-shadow: 13px 9px 0px -5px rgba(0,0,0,0.7);
+-moz-box-shadow: 13px 9px 0px -5px rgba(0,0,0,0.7);
+box-shadow: 13px 9px 0px -5px rgba(0,0,0,0.7);
+
+}
+.btn1{
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Alfa Slab One', cursive;
+    height:50px;
+    width:50%;
+    border: none;
+    outline: none;
+    border-radius: 60px;
+    font-weight: 600;
+    background-color: rgb(223, 3, 3);
+    color: black;
+}
+.btn1:hover{
+    background:rgb(251, 255, 0)
+}
+
+.fa-facebook{
+    font-size:2.5rem;
+    color: blue;
+}
+.fa-google-plus{
+    color: red;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+
+
+

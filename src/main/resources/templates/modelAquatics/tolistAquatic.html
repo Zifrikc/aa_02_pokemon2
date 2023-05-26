@@ -39,12 +39,30 @@
 }
 .bg{
 
-    background-image: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1672546673/fondopoke1_cekzy5.gif');
+
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
+    font-family: 'Abril Fatface', cursive;
 }
+.container{
+font-family: 'Abril Fatface', cursive;
+}
+.table{
 
+    border-radius: 35px;
+    font-family: 'Abril Fatface', cursive;
+}
+ .table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Cambia el color de fondo de las filas impares */
+  }
+   .table thead th {
+    background-color: #eaeaea; /* Cambia el color de fondo de las celdas de encabezado */
+    color: #333; /* Cambia el color del texto de las celdas de encabezado */
+  }
+    .table tbody td {
+    color: #555; /* Cambia el color del texto de las celdas de datos */
+  }
 #bg-video {
     position: fixed;
     left: 50%;
@@ -55,7 +73,7 @@
     min-height: 100%;
     transform: translateX(-50%) translateY(-50%);
     z-index: -100;
-    background-image: url();
+    background-image: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1684988720/Water_type_afbtby.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -65,7 +83,7 @@
 <body class="bg">
 
 <video autoplay muted loop id="bg-video">
-	<source src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1684988720/Water_type_afbtby.png" type="video/mp4">
+	<source src="" type="video/mp4">
 </video>
 <nav class="navbar navbar-expand-md " >
 	<div class="container-fluid">
@@ -113,12 +131,12 @@
 	</div>
 </nav>
 
-<div class="container mt-3 ">
+<div class="container  mt-3 bg-info " style="border-radius: 15px;">
 	<h1 class="">Pokemones tipo agua</h1>
-</div>
-<div class="container mt-3 " id="seccion1">
+
+<div class="container mt-3  bg-info" id="seccion1" style="border-radius: 15px;">
 	<nav class=" ">
-		<div class="crud fs-3 px-4 mb-2 col-md-10">
+		<div class="crud  fs-3 px-4 mb-2 col-md-10">
 			<a class='bx bx-plus px-1 text-dark' th:href="@{/aquatics/nuevo}" style="text-decoration:none;"></a>
 			<i class='bx bx-chevrons-up px-1' ></i>
 			<i class='bx bx-chevrons-down  px-1' ></i>
@@ -165,7 +183,7 @@
 		</table>
 	</div>
 </div>
-
+</div>
 <script >
 $( "#eliminar").click(function(){
 let timerInterval

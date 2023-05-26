@@ -21,50 +21,62 @@ public class Electric implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false) //representa que este campo es obligatorio en base de datos
-    @Column(name ="idPokemon")
-    private Integer idPokemon;
+    @Basic(optional = false)
+    @Column(name ="id_electric")
+    private Integer id_electric;
 
     @Basic(optional = false)
-    @Column(name ="nombre")
-    private String nombre;
+    @Column(name ="name")
+    private String name;
 
-    @Column(name="img")
-    private String img;
+    @Column(name="evolution")
+    private String evolution;
 
-    @Column(name="clase")
-    private String clase;
+    @Column(name="preevolution")
+    private String preevolution;
 
-    @Column(name="region")
-    private String region;
+    @Column(name="hp")
+    private Integer hp;
 
-    @Column(name="categoria")
-    private String categoria;
+    @Column(name="attack")
+    private Integer attack;
 
-    @Column(name="ataque")
-    private Integer ataque;
-    @Column(name="vida")
-    private Integer vida;
+    @Column(name="defense")
+    private Integer defense;
+
+    @Column(name="sp_attack")
+    private Integer sp_attack;
+
+    @Column(name="sp_defense")
+    private Integer sp_defense;
+
+    @Column(name="speed")
+    private Integer speed;
+
+    @Column(name="total")
+    private Integer total;
 
     public Electric(){
 
     }
 
-    public Electric(Integer idPokemon, String nombre) {
-        this.idPokemon = idPokemon;
-        this.nombre = nombre;
+    public Electric(Integer id_electric, String name) {
+        this.id_electric = id_electric;
+        this.name = name;
     }
 
-    public Electric(String nombre, String img, String clase, String region, String categoria, Integer ataque,
-                   Integer vida) {
+    public Electric(String name, String evolution, String preevolution, Integer hp, Integer attack, Integer defense, Integer sp_attack, Integer sp_defense, Integer speed, Integer total) {
         super();
-        this.nombre = nombre;
-        this.img = img;
-        this.clase = clase;
-        this.region = region;
-        this.categoria = categoria;
-        this.ataque = ataque;
-        this.vida = vida;
+        this.name = name;
+        this.evolution = evolution;
+        this.preevolution = preevolution;
+        this.hp = hp;
+        this.attack = attack;
+        this.defense = defense;
+        this.sp_attack = sp_attack;
+        this.sp_defense = sp_defense;
+        this.speed = speed;
+        this.total = total;
     }
 
     public Integer getIdPokemon() {

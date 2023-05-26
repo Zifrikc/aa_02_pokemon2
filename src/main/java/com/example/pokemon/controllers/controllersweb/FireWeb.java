@@ -19,7 +19,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/fires")
 public class FireWeb {
-    @Autowired // Inyección de Depencia
+    @Autowired
     private FireServices servicio;
 
     @RequestMapping("/tolistFire")
@@ -38,13 +38,11 @@ public class FireWeb {
         return "/modelFires/newFire";
     }
 
-
     @RequestMapping(value ="/guardar", method= RequestMethod.POST)
-    public String createAquatic(@ModelAttribute("fire") Fire fire) {
+    public String createFire(@ModelAttribute("fire") Fire fire) {
         servicio.crear(fire);
         return "redirect:/fires/tolistFire";
     }
-
 
     @RequestMapping(value ="/actualizar/{id}")
     public ModelAndView editFire(@PathVariable(name="id") int id) {
@@ -54,11 +52,9 @@ public class FireWeb {
         return mav;
     }
 
-
     @RequestMapping(value = "/eliminar/{id}")
     public String deleteFire(@PathVariable(name="id") int id) {
         servicio.borrarPorId(id);
         return "redirect:/fires/tolistFire";
     }
-
 }

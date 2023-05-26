@@ -35,27 +35,23 @@ public class ElectricWeb {
         return "/modelElectrics/newElectric";
     }
 
-
     @RequestMapping(value ="/guardar", method= RequestMethod.POST)
     public String createElectric(@ModelAttribute("electric") Electric electric) {
         servicio.crear(electric);
         return "redirect:/electrics/tolistElectric";
     }
 
-
     @RequestMapping(value ="/actualizar/{id}")
-    public ModelAndView editAquatic(@PathVariable(name="id") int id) {
+    public ModelAndView editElectric(@PathVariable(name="id") int id) {
         ModelAndView mav = new ModelAndView("/modelElectrics/editElectric");
         Electric electric = servicio.buscarPorId(id);
         mav.addObject("electric",electric);
         return mav;
     }
 
-
     @RequestMapping(value = "/eliminar/{id}")
     public String deleteElectric(@PathVariable(name="id") int id) {
         servicio.borrarPorId(id);
         return "redirect:/electrics/tolistElectric";
     }
-
 }

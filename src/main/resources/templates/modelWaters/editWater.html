@@ -37,15 +37,27 @@
 }
 .bg{
 
-    background-image: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1684988722/Fyre_type_zajadq.png');
+    background-image: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1672546673/fondopoke1_cekzy5.gif');
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-
-
 }
 
-
+#bg-video {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -100;
+    background-image: url();
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .pandaren{  font-size: 25px;
   font-family: 'Alfa Slab One', cursive;
@@ -75,7 +87,7 @@
 					<a class="nav-link active" aria-current="page" href="#" th:href="@{/aquatics/tolistAquatic}" >Acuático</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#" th:href="@{/electrics/tolistElectric}">Electricos</a>
+					<a class="nav-link" href="#"th:href="@{/electrics/tolistElectric}">Electricos</a>
 				</li>
 
 				<li class="nav-item">
@@ -83,7 +95,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="#"th:href="@{/fires/tolistFire}" >Fuego</a>
+					<a class="nav-link" href="#"th:href="@{/fires/tolistFire}">Fuego</a>
 				</li>
 
 				<li class="nav-item">
@@ -108,14 +120,16 @@
 </nav>
 
 
-
+<video autoplay muted loop id="bg-video">
+	<source src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1684988720/Water_type_afbtby.png" type="video/mp4">
+</video>
 <div class="container py-2">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
-			<h1 class="text-center text-dark">Editar pokemon tipo fuego</h1>
+			<h1 class="text-center text-white">Edtiar pokemon tipo acuatico</h1>
 			<hr class="my-4">
-			<form th:action="@{/fires/guardar}"
-				  th:object="${fire}" method="post">
+			<form th:action="@{/aquatics/guardar}"
+				  th:object="${aquatic}" method="post">
 
 				<div class="form-floating mb-3">
 					<input type="text" class=" form-control rounded-4"  readonly="readonly" th:field="*{idPokemon}">
@@ -166,14 +180,13 @@
 
 
 				<div align="center">
-					<button type="submit" class="btn btn-danger pandaren" id="editar">Guardar</button>
+					<button type="submit" class="btn btn-primary pandaren" id="editar">Guardar</button>
 				</div>
 
 			</form>
 		</div>
 	</div>
 </div>
-
 <script >
 $( "#editar").click(function(){
 Swal.fire({

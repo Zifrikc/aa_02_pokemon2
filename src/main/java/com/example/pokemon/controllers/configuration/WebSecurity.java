@@ -20,24 +20,30 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/imagenes/**", "/js/**", "/", "/principal", "/home", "/inicio", "/logeo", "/login","/rest/**")
                 .permitAll()
-                .antMatchers("/aquatics/tolistAquatic").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
-                .antMatchers("/aquatics/nuevo").hasAnyRole("ADMIN","CREADOR")
-                .antMatchers("/aquatics/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
-                .antMatchers("/aquatics/actualizar/**").hasAnyRole("ADMIN","EDITOR")
-                .antMatchers("/aquatics/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
 
-                .antMatchers("/fires/tolistFire").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
-                .antMatchers("/fires/nuevo").hasAnyRole("ADMIN","CREADOR")
-                .antMatchers("/fires/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
-                .antMatchers("/fires/actualizar/**").hasAnyRole("ADMIN","EDITOR")
-                .antMatchers("/fires/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
+                .antMatchers("/grass/tolistGrass").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
+                .antMatchers("/grass/nuevo").hasAnyRole("ADMIN","CREADOR")
+                .antMatchers("/grass/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
+                .antMatchers("/grass/actualizar/**").hasAnyRole("ADMIN","EDITOR")
+                .antMatchers("/grass/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
 
-                .antMatchers("/electrics/tolistElectric").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
-                .antMatchers("/electrics/nuevo").hasAnyRole("ADMIN","CREADOR")
-                .antMatchers("/electrics/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
-                .antMatchers("/electrics/actualizar/**").hasAnyRole("ADMIN","EDITOR")
-                .antMatchers("/electrics/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
+                .antMatchers("/fire/tolistFire").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
+                .antMatchers("/fire/nuevo").hasAnyRole("ADMIN","CREADOR")
+                .antMatchers("/fire/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
+                .antMatchers("/fire/actualizar/**").hasAnyRole("ADMIN","EDITOR")
+                .antMatchers("/fire/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
 
+                .antMatchers("/water/tolistWater").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
+                .antMatchers("/water/nuevo").hasAnyRole("ADMIN","CREADOR")
+                .antMatchers("/water/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
+                .antMatchers("/water/actualizar/**").hasAnyRole("ADMIN","EDITOR")
+                .antMatchers("/water/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
+
+                .antMatchers("/electric/tolistElectric").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
+                .antMatchers("/electric/nuevo").hasAnyRole("ADMIN","CREADOR")
+                .antMatchers("/electric/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
+                .antMatchers("/electric/actualizar/**").hasAnyRole("ADMIN","EDITOR")
+                .antMatchers("/electric/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
 
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").defaultSuccessUrl("/bienvenida", true).permitAll()
@@ -45,20 +51,16 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
     }
-
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         auth.inMemoryAuthentication().withUser("admin").password(encoder.encode("admin")).roles("ADMIN").and()
                 .withUser("juan").password(encoder.encode("juan")).roles("ADMIN").and()
-                .withUser("ashley").password(encoder.encode("ashley")).roles("LECTOR").and()
-                .withUser("dennis").password(encoder.encode("dennis")).roles("CREADOR", "LECTOR").and()
-                .withUser("degian").password(encoder.encode("degian")).roles("LECTOR","DEPURADOR").and()
-                .withUser("zifrick").password(encoder.encode("zifrick")).roles("EDITOR","LECTOR").and();
+                .withUser("ashley").password(encoder.encode("ashley")).roles("LECTOR", "EDITOR", "CREADOR").and()
+                .withUser("dennis").password(encoder.encode("dennis")).roles("LECTOR", "CREADOR", "DEPURADOR").and()
+                .withUser("degian").password(encoder.encode("degian")).roles("LECTOR","EDITOR").and()
+                .withUser("zifrick").password(encoder.encode("zifrick")).roles("LECTOR", "EDITOR").and();
 
     }
-
-
-
 }

@@ -3,31 +3,32 @@ package com.example.pokemon.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
+
 @Entity
-@Table(name="electric")
+@Table(name="water")
 @NamedQueries({
-        @NamedQuery(name = "Electric.findAdll", query = "SELECT p FROM Electric p")
-        ,@NamedQuery(name = "Electric.findByIdelectric", query="SELECT p FROM Electric p WHERE p.idElectric = :idElectric")
-        ,@NamedQuery(name = "Electric.findByName", query="SELECT p FROM Electric p WHERE p.name = :name")
-        ,@NamedQuery(name = "Electric.findByEvolution", query="SELECT p FROM Electric p WHERE p.evolution = :evolution")
-        ,@NamedQuery(name = "Electric.findByPreevolution", query="SELECT p FROM Electric p WHERE p.preevolution = :preevolution")
-        ,@NamedQuery(name = "Electric.findByHp", query="SELECT p FROM Electric p WHERE p.hp = :hp")
-        ,@NamedQuery(name = "Electric.findByAttack", query="SELECT p FROM Electric p WHERE p.attack = :attack")
-        ,@NamedQuery(name = "Electric.findByDefense", query="SELECT p FROM Electric p WHERE p.defense = :defense")
-        ,@NamedQuery(name = "Electric.findBySpattack", query="SELECT p FROM Electric p WHERE p.spattack = :spattack")
-        ,@NamedQuery(name = "Electric.findBySpdefense", query="SELECT p FROM Electric p WHERE p.spdefense = :spdefense")
-        ,@NamedQuery(name = "Electric.findBySpeed", query="SELECT p FROM Electric p WHERE p.speed = :speed")
-        ,@NamedQuery(name = "Electric.findByTotal", query="SELECT p FROM Electric p WHERE p.total = :total")
+        @NamedQuery(name = "Water.findAdll", query = "SELECT p FROM Water p")
+        ,@NamedQuery(name = "Water.findByIdwater", query="SELECT p FROM Water p WHERE p.idWater = :idWater")
+        ,@NamedQuery(name = "Water.findByName", query="SELECT p FROM Water p WHERE p.name = :name")
+        ,@NamedQuery(name = "Water.findByEvolution", query="SELECT p FROM Water p WHERE p.evolution = :evolution")
+        ,@NamedQuery(name = "Water.findByPreevolution", query="SELECT p FROM Water p WHERE p.preevolution = :preevolution")
+        ,@NamedQuery(name = "Water.findByHp", query="SELECT p FROM Water p WHERE p.hp = :hp")
+        ,@NamedQuery(name = "Water.findByAttack", query="SELECT p FROM Water p WHERE p.attack = :attack")
+        ,@NamedQuery(name = "Water.findByDefense", query="SELECT p FROM Water p WHERE p.defense = :defense")
+        ,@NamedQuery(name = "Water.findBySpattack", query="SELECT p FROM Water p WHERE p.spattack = :spattack")
+        ,@NamedQuery(name = "Water.findBySpdefense", query="SELECT p FROM Water p WHERE p.spdefense = :spdefense")
+        ,@NamedQuery(name = "Water.findBySpeed", query="SELECT p FROM Water p WHERE p.speed = :speed")
+        ,@NamedQuery(name = "Water.findByTotal", query="SELECT p FROM Water p WHERE p.total = :total")
 
 
 })
-public class Electric implements Serializable {
+public class Water implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false) //representa que este campo es obligatorio en base de datos
-    @Column(name = "idElectric")
-    private Integer idElectric;
+    @Column(name = "idWater")
+    private Integer idWater;
 
     @Basic(optional = false)
     @Column(name = "name")
@@ -60,16 +61,16 @@ public class Electric implements Serializable {
     @Column(name = "total")
     private Integer total;
 
-    public Electric() {
+    public Water() {
     }
 
-    public Electric(Integer idElectric, String name) {
-        this.idElectric = idElectric;
-        this.name = name;
+    public Water(Integer idWater, String nombre) {
+        this.idWater = idWater;
+        this.name = nombre;
     }
 
-    public Electric(String name, String evolution, String preevolution, Integer hp, Integer attack, Integer defense,
-                Integer spattack, Integer spdefense, Integer speed, Integer total) {
+    public Water(String name, String evolution, String preevolution, Integer hp, Integer attack, Integer defense,
+                 Integer spattack, Integer spdefense, Integer speed, Integer total) {
         super();
         this.name = name;
         this.evolution = evolution;
@@ -83,12 +84,12 @@ public class Electric implements Serializable {
         this.total = total;
     }
 
-    public Integer getIdElectric() {
-        return idElectric;
+    public Integer getIdWater() {
+        return idWater;
     }
 
-    public void setIdElectric(Integer idElectric) {
-        this.idElectric = idElectric;
+    public void setIdWater(Integer idWater) {
+        this.idWater = idWater;
     }
 
     public String getName() {
@@ -173,7 +174,7 @@ public class Electric implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idElectric);
+        return Objects.hash(idWater);
     }
 
     @Override
@@ -184,13 +185,13 @@ public class Electric implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Electric other = (Electric) obj;
-        return Objects.equals(idElectric, other.idElectric);
+        Water other = (Water) obj;
+        return Objects.equals(idWater, other.idWater);
     }
 
     @Override
     public String toString() {
-        return "Electric [idElectric=" + idElectric + "]";
+        return "Water [idWater=" + idWater + "]";
     }
 
     public Grass buscarPorID(int i) {

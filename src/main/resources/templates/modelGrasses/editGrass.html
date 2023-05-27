@@ -49,7 +49,7 @@ font-family: 'Abril Fatface', cursive;
     min-height: 100%;
     transform: translateX(-50%) translateY(-50%);
     z-index: -100;
-    background-image: url("https://res.cloudinary.com/dxrn8ww6t/image/upload/v1685047787/Electric_type_tyt8vg.jpg");
+    background-image: url("https://res.cloudinary.com/tecnologi-zifrikc/video/upload/v1685128041/may-meeting-mega-rayquaza-pokemon-moewalls.com_prqmmj.mp4");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -112,21 +112,20 @@ font-family: 'Abril Fatface', cursive;
 </nav>
 
 <video autoplay muted loop id="bg-video">
-	<source src="https://res.cloudinary.com/dxrn8ww6t/image/upload/v1685047787/Electric_type_tyt8vg.jpg" type="video/mp4">
+	<source src="https://res.cloudinary.com/tecnologi-zifrikc/video/upload/v1685128041/may-meeting-mega-rayquaza-pokemon-moewalls.com_prqmmj.mp4" type="video/mp4">
 </video>
 <div class="container py-2">
 	<div class="row">
 		<div class="col-md-6 offset-md-3">
-			<h1 class="text-center text-dark">Edtiar pokemon tipo Electrico</h1>
+			<h1 class="text-center text-white">Edtiar pokemon tipo planta</h1>
 			<hr class="my-4">
-			<form th:action="@{/electrics/guardar}"
-				  th:object="${electric}" method="post">
+			<form th:action="@{/grasses/guardar}"
+				  th:object="${grass}" method="post">
 
 				<div class="form-floating mb-3">
-					<input type="text" class=" form-control rounded-4"  readonly="readonly" th:field="*{idElectric}">
+					<input type="text" class=" form-control rounded-4"  readonly="readonly" th:field="*{idGrass}">
 					<label >#</label>
 				</div>
-
 				<div class="form-floating mb-3">
 					<input type="text" class=" form-control rounded-4"   name="name" placeholder="name " th:field="*{name}" >
 					<label for="floatingInput">Nombre</label>
@@ -184,9 +183,8 @@ font-family: 'Abril Fatface', cursive;
 				</div>
 
 				<div align="center">
-					<button type="submit" class="btn btn-warning pandaren" id="guardar">Guardar</button>
+					<button type="submit" class="btn btn-success pandaren" id="editar">Guardar</button>
 				</div>
-
 			</form>
 		</div>
 	</div>

@@ -20,11 +20,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/imagenes/**", "/js/**", "/", "/principal", "/home", "/inicio", "/logeo", "/login","/rest/**")
                 .permitAll()
-                .antMatchers("/aquatics/tolistAquatic").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
-                .antMatchers("/aquatics/nuevo").hasAnyRole("ADMIN","CREADOR")
-                .antMatchers("/aquatics/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
-                .antMatchers("/aquatics/actualizar/**").hasAnyRole("ADMIN","EDITOR")
-                .antMatchers("/aquatics/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
+                .antMatchers("/waters/tolistAquatic").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
+                .antMatchers("/waters/nuevo").hasAnyRole("ADMIN","CREADOR")
+                .antMatchers("/waters/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
+                .antMatchers("/waters/actualizar/**").hasAnyRole("ADMIN","EDITOR")
+                .antMatchers("/waters/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
 
                 .antMatchers("/fires/tolistFire").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
                 .antMatchers("/fires/nuevo").hasAnyRole("ADMIN","CREADOR")
@@ -38,7 +38,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/electrics/actualizar/**").hasAnyRole("ADMIN","EDITOR")
                 .antMatchers("/electrics/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
 
-
+                .antMatchers("/grasses/tolistGrass").hasAnyRole("ADMIN","LECTOR","CREADOR","EDITOR","DEPURADOR")
+                .antMatchers("/grasses/nuevo").hasAnyRole("ADMIN","CREADOR")
+                .antMatchers("/grasses/guardar").hasAnyRole("ADMIN","CREADOR","EDITOR")
+                .antMatchers("/grasses/actualizar/**").hasAnyRole("ADMIN","EDITOR")
+                .antMatchers("/grasses/eliminar/**").hasAnyRole("ADMIN","DEPURADOR")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login").defaultSuccessUrl("/bienvenida", true).permitAll()
                 .and().logout()
@@ -48,7 +52,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         auth.inMemoryAuthentication().withUser("admin").password(encoder.encode("admin")).roles("ADMIN").and()
                 .withUser("juan").password(encoder.encode("juan")).roles("ADMIN").and()
@@ -58,7 +61,4 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .withUser("zifrick").password(encoder.encode("zifrick")).roles("EDITOR","LECTOR").and();
 
     }
-
-
-
 }

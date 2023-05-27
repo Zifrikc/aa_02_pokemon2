@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Electric</title>
+	<title>Grasses</title>
 	<!--LINKS CSS-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.0/dist/sweetalert2.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.0/dist/sweetalert2.min.js"></script>
@@ -37,6 +37,7 @@
 .dropdown-menu li a:hover {
   background-color: rgb(55, 91, 112);
 }
+
 #bg-video {
     position: fixed;
     left: 50%;
@@ -47,7 +48,7 @@
     min-height: 100%;
     transform: translateX(-50%) translateY(-50%);
     z-index: -100;
-    background-image: url("https://res.cloudinary.com/dxrn8ww6t/image/upload/v1685047787/Electric_type_tyt8vg.jpg");
+    background-image: url('https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1684988719/Grass_type_bbtiqy.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -59,17 +60,17 @@
 font-family: 'Abril Fatface', cursive;
 }
 .ekatn{
-	background-color: #8a8150;
+	background-color: #346460;
 	opacity: 0.8;
   }
 
 
 </style>
 </head>
-<body>
+<body class="bg">
 
 <video autoplay muted loop id="bg-video">
-	<source src="https://res.cloudinary.com/dxrn8ww6t/image/upload/v1685047787/Electric_type_tyt8vg.jpg" type="video/mp4">
+	<source src="">
 </video>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
 	<div class="container-fluid">
@@ -112,16 +113,18 @@ font-family: 'Abril Fatface', cursive;
 		</div>
 	</div>
 </nav>
-<div class="container">
+
+<div class="container py-5">
 	<div class="ekatn">
 
+
 <div class="container mt-3 ">
-	<h1 class="">Pokemones tipo Electrico</h1>
+	<h1 class="text-dark">Pokemones tipo Planta</h1>
 </div>
 <div class="container mt-3 " id="seccion1">
 	<nav class=" ">
 		<div class="crud fs-3 px-4 mb-2 col-md-10">
-			<a class='bx bx-plus px-1 text-dark' th:href="@{/electrics/nuevo}" style="text-decoration:none;"></a>
+			<a class='bx bx-plus px-1 text-dark' th:href="@{/grasses/nuevo}" style="text-decoration:none;"></a>
 			<i class='bx bx-chevrons-up px-1' ></i>
 			<i class='bx bx-chevrons-down  px-1' ></i>
 			<i type="button" class='bx bx-refresh  px-1'  title="Actualizar"></i>
@@ -135,7 +138,7 @@ font-family: 'Abril Fatface', cursive;
 	<!-- Navigation -->
 	<hr class="my-1">
 	<div class="table-responsive">
-		<table class="table" id="The_secret_of_the_Asius">
+		<table class="table table" id="The_secret_of_the_Asius">
 			<thead>
 			<tr class="bg-active text-dark">
 				<th >#</th>
@@ -154,22 +157,22 @@ font-family: 'Abril Fatface', cursive;
 			</tr>
 			</thead>
 			<tbody style="font-size: 18px; max-width: 35px;">
-			<tr th:each="electric : ${listElectrics}">
-				<td th:text="${electric.idElectric}"></td>
-				<td th:text="${electric.name}"></td>
-				<td th:text="${electric.evolution}"></td>
-				<td th:text="${electric.preevolution}"></td>
-				<td th:text="${electric.hp}"></td>
-				<td th:text="${electric.attack}"></td>
-				<td th:text="${electric.defense}"></td>
-				<td th:text="${electric.spattack}"></td>
-				<td th:text="${electric.spdefense}"></td>
-				<td th:text="${electric.speed}"></td>
-				<td th:text="${electric.total}"></td>
+			<tr th:each="grass : ${listGrass}">
+				<td th:text="${grass.idGrass}"></td>
+				<td th:text="${grass.name}"></td>
+				<td th:text="${grass.evolution}"></td>
+				<td th:text="${grass.preevolution}"></td>
+				<td th:text="${grass.hp}"></td>
+				<td th:text="${grass.attack}"></td>
+				<td th:text="${grass.defense}"></td>
+				<td th:text="${grass.spattack}"></td>
+				<td th:text="${grass.spdefense}"></td>
+				<td th:text="${grass.speed}"></td>
+				<td th:text="${grass.total}"></td>
 
 				<td>
-					<a class="bx bx-edit-alt text-dark  "title="Editar" style="text-decoration:none;"th:href="@{/electrics/actualizar/{id}(id=${electric.idElectric})}"></a>
-					<a  class="bx bx-trash text-dark px-3"  id="eliminar" title="Eliminar" style="text-decoration:none;" th:href="@{/electrics/eliminar/{id}(id=${electric.idElectric})}"></a></td>
+					<a class="bx bx-edit-alt text-dark  "title="Editar" style="text-decoration:none;"th:href="@{/grasses/actualizar/{id}(id=${grass.idGrass})}"></a>
+					<a  class="bx bx-trash text-dark px-3"  id="eliminar" title="Eliminar" style="text-decoration:none;" th:href="@{/grasses/eliminar/{id}(id=${grass.idGrass})}"></a></td>
 			</tr>
 			</tbody>
 		</table>

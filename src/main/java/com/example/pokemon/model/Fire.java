@@ -7,15 +7,19 @@ import java.util.Objects;
 @Entity
 @Table(name="fire")
 @NamedQueries({
-        @NamedQuery(name = "Fire.findAdll", query = "SELECT p FROM Aquatic p")
-        ,@NamedQuery(name = "Fire.findByIdpokemon", query="SELECT p FROM Fire p WHERE p.idPokemon = :idPokemon")
-        ,@NamedQuery(name = "Fire.findByNombre", query="SELECT p FROM Fire p WHERE p.nombre = :nombre")
-        ,@NamedQuery(name = "Fire.findByImg", query="SELECT p FROM Fire p WHERE p.img = :img")
-        ,@NamedQuery(name = "Fire.findByClase", query="SELECT p FROM Fire p WHERE p.clase = :clase")
-        ,@NamedQuery(name = "Fire.findByRegion", query="SELECT p FROM Fire p WHERE p.region = :region")
-        ,@NamedQuery(name = "Fire.findByCategoria", query="SELECT p FROM Fire p WHERE p.categoria = :categoria")
-        ,@NamedQuery(name = "Fire.findByAtaque", query="SELECT p FROM Fire p WHERE p.ataque = :ataque")
-        ,@NamedQuery(name = "Fire.findByVida", query="SELECT p FROM Fire p WHERE p.vida = :vida")
+        @NamedQuery(name = "Fire.findAdll", query = "SELECT p FROM Fire p")
+        ,@NamedQuery(name = "Fire.findByIdfire", query="SELECT p FROM Fire p WHERE p.idFire = :idFire")
+        ,@NamedQuery(name = "Fire.findByName", query="SELECT p FROM Fire p WHERE p.name = :name")
+        ,@NamedQuery(name = "Fire.findByEvolution", query="SELECT p FROM Fire p WHERE p.evolution = :evolution")
+        ,@NamedQuery(name = "Fire.findByPreevolution", query="SELECT p FROM Fire p WHERE p.preevolution = :preevolution")
+        ,@NamedQuery(name = "Fire.findByHp", query="SELECT p FROM Fire p WHERE p.hp = :hp")
+        ,@NamedQuery(name = "Fire.findByAttack", query="SELECT p FROM Fire p WHERE p.attack = :attack")
+        ,@NamedQuery(name = "Fire.findByDefense", query="SELECT p FROM Fire p WHERE p.defense = :defense")
+        ,@NamedQuery(name = "Fire.findBySpattack", query="SELECT p FROM Fire p WHERE p.spattack = :spattack")
+        ,@NamedQuery(name = "Fire.findBySpdefense", query="SELECT p FROM Fire p WHERE p.spdefense = :spdefense")
+        ,@NamedQuery(name = "Fire.findBySpeed", query="SELECT p FROM Fire p WHERE p.speed = :speed")
+        ,@NamedQuery(name = "Fire.findByTotal", query="SELECT p FROM Fire p WHERE p.total = :total")
+
 
 })
 public class Fire implements Serializable {
@@ -23,118 +27,154 @@ public class Fire implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false) //representa que este campo es obligatorio en base de datos
-    @Column(name ="idPokemon")
-    private Integer idPokemon;
+    @Column(name = "idFire")
+    private Integer idFire;
 
     @Basic(optional = false)
-    @Column(name ="nombre")
-    private String nombre;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name="img")
-    private String img;
+    @Column(name = "evolution")
+    private String evolution;
 
-    @Column(name="clase")
-    private String clase;
+    @Column(name = "preevolution")
+    private String preevolution;
 
-    @Column(name="region")
-    private String region;
+    @Column(name = "hp")
+    private Integer hp;
 
-    @Column(name="categoria")
-    private String categoria;
+    @Column(name = "attack")
+    private Integer attack;
 
-    @Column(name="ataque")
-    private Integer ataque;
-    @Column(name="vida")
-    private Integer vida;
+    @Column(name = "defense")
+    private Integer defense;
 
-    public Fire(){
+    @Column(name = "spattack")
+    private Integer spattack;
 
+    @Column(name = "spdefense")
+    private Integer spdefense;
+
+    @Column(name = "speed")
+    private Integer speed;
+
+    @Column(name = "total")
+    private Integer total;
+
+    public Fire() {
     }
 
-    public Fire(Integer idPokemon, String nombre) {
-        this.idPokemon = idPokemon;
-        this.nombre = nombre;
+    public Fire(Integer idFire, String nombre) {
+        this.idFire = idFire;
+        this.name = nombre;
     }
 
-    public Fire(String nombre, String img, String clase, String region, String categoria, Integer ataque,
-                   Integer vida) {
+    public Fire(String name, String evolution, String preevolution, Integer hp, Integer attack, Integer defense,
+                Integer spattack, Integer spdefense, Integer speed, Integer total) {
         super();
-        this.nombre = nombre;
-        this.img = img;
-        this.clase = clase;
-        this.region = region;
-        this.categoria = categoria;
-        this.ataque = ataque;
-        this.vida = vida;
+        this.name = name;
+        this.evolution = evolution;
+        this.preevolution = preevolution;
+        this.hp = hp;
+        this.attack = attack;
+        this.defense = defense;
+        this.spattack = spattack;
+        this.spdefense = spdefense;
+        this.speed = speed;
+        this.total = total;
     }
 
-    public Integer getIdPokemon() {
-        return idPokemon;
+    public Integer getIdFire() {
+        return idFire;
     }
 
-    public void setIdPokemon(Integer idPokemon) {
-        this.idPokemon = idPokemon;
+    public void setIdFire(Integer idFire) {
+        this.idFire = idFire;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getImg() {
-        return img;
+    public String getEvolution() {
+        return evolution;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setEvolution(String evolution) {
+        this.evolution = evolution;
     }
 
-    public String getClase() {
-        return clase;
+    public String getPreevolution() {
+        return preevolution;
     }
 
-    public void setClase(String clase) {
-        this.clase = clase;
+    public void setPreevolution(String preevolution) {
+        this.preevolution = preevolution;
     }
 
-    public String getRegion() {
-        return region;
+    public Integer getHp() {
+        return hp;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    public void setHp(Integer hp) {
+        this.hp = hp;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public Integer getAttack() {
+        return attack;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setAttack(Integer attack) {
+        this.attack = attack;
     }
 
-    public Integer getAtaque() {
-        return ataque;
+    public Integer getDefense() {
+        return defense;
     }
 
-    public void setAtaque(Integer ataque) {
-        this.ataque = ataque;
+    public void setDefense(Integer defense) {
+        this.defense = defense;
     }
 
-    public Integer getVida() {
-        return vida;
+    public Integer getSpattack() {
+        return spattack;
     }
 
-    public void setVida(Integer vida) {
-        this.vida = vida;
+    public void setSpattack(Integer spattack) {
+        this.spattack = spattack;
+    }
+
+    public Integer getSpdefense() {
+        return spdefense;
+    }
+
+    public void setSpdefense(Integer spdefense) {
+        this.spdefense = spdefense;
+    }
+
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Integer speed) {
+        this.speed = speed;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idPokemon);
+        return Objects.hash(idFire);
     }
 
     @Override
@@ -146,18 +186,15 @@ public class Fire implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         Fire other = (Fire) obj;
-        return Objects.equals(idPokemon, other.idPokemon);
+        return Objects.equals(idFire, other.idFire);
     }
 
     @Override
     public String toString() {
-        return "Fire [idPokemon=" + idPokemon + "]";
+        return "Fire [idFire=" + idFire + "]";
     }
 
-    public Fire buscarPorID(int i) {
+    public Grass buscarPorID(int i) {
         return null;
     }
-
-    }
-
-
+}

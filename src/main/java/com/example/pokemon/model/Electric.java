@@ -7,65 +7,69 @@ import java.util.Objects;
 @Table(name="electric")
 @NamedQueries({
         @NamedQuery(name = "Electric.findAdll", query = "SELECT p FROM Electric p")
-        ,@NamedQuery(name = "Electric.findByIdpokemon", query="SELECT p FROM Electric p WHERE p.idPokemon = :idPokemon")
-        ,@NamedQuery(name = "Electric.findByNombre", query="SELECT p FROM Electric p WHERE p.nombre = :nombre")
-        ,@NamedQuery(name = "Electric.findByImg", query="SELECT p FROM Electric p WHERE p.img = :img")
-        ,@NamedQuery(name = "Electric.findByClase", query="SELECT p FROM Electric p WHERE p.clase = :clase")
-        ,@NamedQuery(name = "Electric.findByRegion", query="SELECT p FROM Electric p WHERE p.region = :region")
-        ,@NamedQuery(name = "Electric.findByCategoria", query="SELECT p FROM Electric p WHERE p.categoria = :categoria")
-        ,@NamedQuery(name = "Electric.findByAtaque", query="SELECT p FROM Electric p WHERE p.ataque = :ataque")
-        ,@NamedQuery(name = "Electric.findByVida", query="SELECT p FROM Electric p WHERE p.vida = :vida")
+        ,@NamedQuery(name = "Electric.findByIdelectric", query="SELECT p FROM Electric p WHERE p.idElectric = :idElectric")
+        ,@NamedQuery(name = "Electric.findByName", query="SELECT p FROM Electric p WHERE p.name = :name")
+        ,@NamedQuery(name = "Electric.findByEvolution", query="SELECT p FROM Electric p WHERE p.evolution = :evolution")
+        ,@NamedQuery(name = "Electric.findByPreevolution", query="SELECT p FROM Electric p WHERE p.preevolution = :preevolution")
+        ,@NamedQuery(name = "Electric.findByHp", query="SELECT p FROM Electric p WHERE p.hp = :hp")
+        ,@NamedQuery(name = "Electric.findByAttack", query="SELECT p FROM Electric p WHERE p.attack = :attack")
+        ,@NamedQuery(name = "Electric.findByDefense", query="SELECT p FROM Electric p WHERE p.defense = :defense")
+        ,@NamedQuery(name = "Electric.findBySpattack", query="SELECT p FROM Electric p WHERE p.spattack = :spattack")
+        ,@NamedQuery(name = "Electric.findBySpdefense", query="SELECT p FROM Electric p WHERE p.spdefense = :spdefense")
+        ,@NamedQuery(name = "Electric.findBySpeed", query="SELECT p FROM Electric p WHERE p.speed = :speed")
+        ,@NamedQuery(name = "Electric.findByTotal", query="SELECT p FROM Electric p WHERE p.total = :total")
+
 
 })
 public class Electric implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name ="id_electric")
-    private Integer id_electric;
+    @Basic(optional = false) //representa que este campo es obligatorio en base de datos
+    @Column(name = "idElectric")
+    private Integer idElectric;
 
     @Basic(optional = false)
-    @Column(name ="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name="evolution")
+    @Column(name = "evolution")
     private String evolution;
 
-    @Column(name="preevolution")
+    @Column(name = "preevolution")
     private String preevolution;
 
-    @Column(name="hp")
+    @Column(name = "hp")
     private Integer hp;
 
-    @Column(name="attack")
+    @Column(name = "attack")
     private Integer attack;
 
-    @Column(name="defense")
+    @Column(name = "defense")
     private Integer defense;
 
-    @Column(name="sp_attack")
-    private Integer sp_attack;
+    @Column(name = "spattack")
+    private Integer spattack;
 
-    @Column(name="sp_defense")
-    private Integer sp_defense;
+    @Column(name = "spdefense")
+    private Integer spdefense;
 
-    @Column(name="speed")
+    @Column(name = "speed")
     private Integer speed;
 
-    @Column(name="total")
+    @Column(name = "total")
     private Integer total;
 
-    public Electric(){
-
+    public Electric() {
     }
 
-    public Electric(Integer id_electric, String name) {
-        this.id_electric = id_electric;
+    public Electric(Integer idElectric, String name) {
+        this.idElectric = idElectric;
         this.name = name;
     }
 
-    public Electric(String name, String evolution, String preevolution, Integer hp, Integer attack, Integer defense, Integer sp_attack, Integer sp_defense, Integer speed, Integer total) {
+    public Electric(String name, String evolution, String preevolution, Integer hp, Integer attack, Integer defense,
+                Integer spattack, Integer spdefense, Integer speed, Integer total) {
         super();
         this.name = name;
         this.evolution = evolution;
@@ -73,79 +77,103 @@ public class Electric implements Serializable {
         this.hp = hp;
         this.attack = attack;
         this.defense = defense;
-        this.sp_attack = sp_attack;
-        this.sp_defense = sp_defense;
+        this.spattack = spattack;
+        this.spdefense = spdefense;
         this.speed = speed;
         this.total = total;
     }
 
-    public Integer getIdPokemon() {
-        return idPokemon;
+    public Integer getIdElectric() {
+        return idElectric;
     }
 
-    public void setIdPokemon(Integer idPokemon) {
-        this.idPokemon = idPokemon;
+    public void setIdElectric(Integer idElectric) {
+        this.idElectric = idElectric;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getImg() {
-        return img;
+    public String getEvolution() {
+        return evolution;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setEvolution(String evolution) {
+        this.evolution = evolution;
     }
 
-    public String getClase() {
-        return clase;
+    public String getPreevolution() {
+        return preevolution;
     }
 
-    public void setClase(String clase) {
-        this.clase = clase;
+    public void setPreevolution(String preevolution) {
+        this.preevolution = preevolution;
     }
 
-    public String getRegion() {
-        return region;
+    public Integer getHp() {
+        return hp;
     }
 
-    public void setRegion(String region) {
-        this.region = region;
+    public void setHp(Integer hp) {
+        this.hp = hp;
     }
 
-    public String getCategoria() {
-        return categoria;
+    public Integer getAttack() {
+        return attack;
     }
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setAttack(Integer attack) {
+        this.attack = attack;
     }
 
-    public Integer getAtaque() {
-        return ataque;
+    public Integer getDefense() {
+        return defense;
     }
 
-    public void setAtaque(Integer ataque) {
-        this.ataque = ataque;
+    public void setDefense(Integer defense) {
+        this.defense = defense;
     }
 
-    public Integer getVida() {
-        return vida;
+    public Integer getSpattack() {
+        return spattack;
     }
 
-    public void setVida(Integer vida) {
-        this.vida = vida;
+    public void setSpattack(Integer spattack) {
+        this.spattack = spattack;
+    }
+
+    public Integer getSpdefense() {
+        return spdefense;
+    }
+
+    public void setSpdefense(Integer spdefense) {
+        this.spdefense = spdefense;
+    }
+
+    public Integer getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(Integer speed) {
+        this.speed = speed;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idPokemon);
+        return Objects.hash(idElectric);
     }
 
     @Override
@@ -157,20 +185,15 @@ public class Electric implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         Electric other = (Electric) obj;
-        return Objects.equals(idPokemon, other.idPokemon);
+        return Objects.equals(idElectric, other.idElectric);
     }
 
     @Override
     public String toString() {
-        return "Electric [idPokemon=" + idPokemon + "]";
+        return "Electric [idElectric=" + idElectric + "]";
     }
 
-    public Electric buscarPorID(int i) {
+    public Grass buscarPorID(int i) {
         return null;
     }
-
-
-
-
-
 }

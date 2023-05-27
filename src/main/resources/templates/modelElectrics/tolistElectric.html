@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Electrico</title>
+	<title>Electric</title>
 	<!--LINKS CSS-->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.0/dist/sweetalert2.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.0.0/dist/sweetalert2.min.js"></script>
@@ -37,32 +37,6 @@
 .dropdown-menu li a:hover {
   background-color: rgb(55, 91, 112);
 }
-.bg{
-
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    font-family: 'Abril Fatface', cursive;
-}
-.table{
-
-    border-radius: 35px;
-
-}
- .table tbody tr:nth-child(odd) {
-    background-color: #f2f2f2; /* Cambia el color de fondo de las filas impares */
-  }
-   .table thead th {
-    background-color: #eaeaea; /* Cambia el color de fondo de las celdas de encabezado */
-    color: #333; /* Cambia el color del texto de las celdas de encabezado */
-  }
-    .table tbody td {
-    color: #555; /* Cambia el color del texto de las celdas de datos */
-  }
-.container{
-font-family: 'Abril Fatface', cursive;
-}
 #bg-video {
     position: fixed;
     left: 50%;
@@ -73,50 +47,58 @@ font-family: 'Abril Fatface', cursive;
     min-height: 100%;
     transform: translateX(-50%) translateY(-50%);
     z-index: -100;
-    background-image: url('https://res.cloudinary.com/dxrn8ww6t/image/upload/v1685047787/Electric_type_tyt8vg.jpg');
+    background-image: url("https://res.cloudinary.com/dxrn8ww6t/image/upload/v1685047787/Electric_type_tyt8vg.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+
+
+*{
+font-family: 'Abril Fatface', cursive;
+}
+.ekatn{
+	background-color: #8a8150;
+	opacity: 0.8;
+  }
+
+
 </style>
 </head>
-<body class="bg">
+<body>
 
 <video autoplay muted loop id="bg-video">
-	<source src="" type="video/mp4">
+	<source src="https://res.cloudinary.com/dxrn8ww6t/image/upload/v1685047787/Electric_type_tyt8vg.jpg" type="video/mp4">
 </video>
-<nav class="navbar navbar-expand-md " >
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
 	<div class="container-fluid">
-		<a class="navbar-brand col-lg-6  px-5 me-auto " th:href="@{/bienvenida}">Pokemon</a>
+		<img src="../assets/Pokeball-PNG-Photos.png" width="32" height="32" >
+		<a class="navbar-brand col-lg-6  px-5 me-auto" th:href="@{/bienvenida}">Pokemon</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse">
+		<div class="collapse navbar-collapse" id="navbarsExample04">
 			<ul class="navbar-nav me-auto mb-2 mb-md-0">
 				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#" th:href="@{/aquatics/tolistAquatic}" >Acuático </a>
+					<a class="nav-link active" aria-current="page" th:href="@{/grasses/tolistGrass}" >Planta</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#" th:href="@{/electrics/tolistElectric}" >Eléctrico</a>
-				</li>
-
-				<li class="nav-item">
-					<a class="nav-link" href="#">Tierra</a>
+					<a class="nav-link"   th:href="@{/fires/tolistFire}">Fuego</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="#"th:href="@{/fires/tolistFire}">Fuego</a>
+					<a class="nav-link" th:href="@{/waters/tolistWater}" href="#">Agua</a>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="#">Legendarios</a>
+					<a class="nav-link"th:href="@{/electrics/tolistElectric}" >Eléctrico</a>
 				</li>
 
-				<li class="nav-item col-lg-2">
-					<a class="nav-link" href="#">VS</a>
+				<li class="nav-item col-lg-3">
+					<a class="nav-link" href="#">Pokédex</a>
 				</li>
-
 
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -130,59 +112,70 @@ font-family: 'Abril Fatface', cursive;
 		</div>
 	</div>
 </nav>
+<div class="container">
+	<div class="ekatn">
 
-<div class="container mt-3 bg-warning "style="border-radius: 15px;">
-	<h1 class="">Pokemones tipo electrico</h1>
-
-	<div class="container mt-3 " id="seccion1" style="border-radius: 15px;">
-		<nav class=" ">
-			<div class="crud fs-3 px-4 mb-2 col-md-10">
-				<a class='bx bx-plus px-1 text-dark' th:href="@{/electrics/nuevo}" style="text-decoration:none;"></a>
-				<i class='bx bx-chevrons-up px-1' ></i>
-				<i class='bx bx-chevrons-down  px-1' ></i>
-				<i type="button" class='bx bx-refresh  px-1'  title="Actualizar"></i>
-			</div>
-			<div class="collapse navbar-collapse" >
-				<form role="search">
-					<input class="form-control " type="search" placeholder="Search" aria-label="Search">
-				</form>
-			</div>
-		</nav>
-		<!-- Navigation -->
-		<hr class="my-1">
-		<div class="table-responsive">
-			<table class="table table-hover" id="The_secret_of_the_Asius">
-				<thead>
-				<tr class="bg-active text-dark">
-					<th >#</th>
-					<th >Nombre</th>
-					<th >Imagen</th>
-					<th>Clase</th>
-					<th>Region</th>
-					<th>Categoria</th>
-					<th>Ataque</th>
-					<th>Vida </th>
-					<th>Acciones </th>
-				</tr>
-				</thead>
-				<tbody style="font-size: 18px; max-width: 35px;">
-				<tr th:each="electric : ${listElectrics}">
-					<td th:text="${electric.idPokemon}"></td>
-					<td th:text="${electric.nombre}"></td>
-					<td th:text="${electric.img}"></td>
-					<td th:text="${electric.clase}"></td>
-					<td th:text="${electric.region}"></td>
-					<td th:text="${electric.categoria}"></td>
-					<td th:text="${electric.ataque}"></td>
-					<td th:text="${electric.vida}"></td>
-					<td>
-						<a class="bx bx-edit-alt text-dark  "title="Editar" style="text-decoration:none;"th:href="@{/electrics/actualizar/{id}(id=${electric.idPokemon})}"></a>
-						<a  class="bx bx-trash text-dark px-3"  id="eliminar" title="Eliminar" style="text-decoration:none;" th:href="@{/electrics/eliminar/{id}(id=${electric.idPokemon})}"></a></td>
-				</tr>
-				</tbody>
-			</table>
+<div class="container mt-3 ">
+	<h1 class="">Pokemones tipo Electrico</h1>
+</div>
+<div class="container mt-3 " id="seccion1">
+	<nav class=" ">
+		<div class="crud fs-3 px-4 mb-2 col-md-10">
+			<a class='bx bx-plus px-1 text-dark' th:href="@{/electrics/nuevo}" style="text-decoration:none;"></a>
+			<i class='bx bx-chevrons-up px-1' ></i>
+			<i class='bx bx-chevrons-down  px-1' ></i>
+			<i type="button" class='bx bx-refresh  px-1'  title="Actualizar"></i>
 		</div>
+		<div class="collapse navbar-collapse" >
+			<form role="search">
+				<input class="form-control " type="search" placeholder="Search" aria-label="Search">
+			</form>
+		</div>
+	</nav>
+	<!-- Navigation -->
+	<hr class="my-1">
+	<div class="table-responsive">
+		<table class="table" id="The_secret_of_the_Asius">
+			<thead>
+			<tr class="bg-active text-dark">
+				<th >#</th>
+				<th >Nombre</th>
+				<th >Evolucion</th>
+				<th>Preevolucion</th>
+				<th>Hp</th>
+				<th>Ataque</th>
+				<th>Defensa</th>
+				<th>Ataque especial</th>
+				<th>Defensa especial</th>
+				<th>Velocidad</th>
+				<th>Total</th>
+				<th>Acciones</th>
+
+			</tr>
+			</thead>
+			<tbody style="font-size: 18px; max-width: 35px;">
+			<tr th:each="electric : ${listElectrics}">
+				<td th:text="${electric.idElectric}"></td>
+				<td th:text="${electric.name}"></td>
+				<td th:text="${electric.evolution}"></td>
+				<td th:text="${electric.preevolution}"></td>
+				<td th:text="${electric.hp}"></td>
+				<td th:text="${electric.attack}"></td>
+				<td th:text="${electric.defense}"></td>
+				<td th:text="${electric.spattack}"></td>
+				<td th:text="${electric.spdefense}"></td>
+				<td th:text="${electric.speed}"></td>
+				<td th:text="${electric.total}"></td>
+
+				<td>
+					<a class="bx bx-edit-alt text-dark  "title="Editar" style="text-decoration:none;"th:href="@{/electrics/actualizar/{id}(id=${electric.idElectric})}"></a>
+					<a  class="bx bx-trash text-dark px-3"  id="eliminar" title="Eliminar" style="text-decoration:none;" th:href="@{/electrics/eliminar/{id}(id=${electric.idElectric})}"></a></td>
+			</tr>
+			</tbody>
+		</table>
 	</div>
+</div>
+</div>
 </div>
 <script >
 $( "#eliminar").click(function(){

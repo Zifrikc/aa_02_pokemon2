@@ -1,19 +1,19 @@
 package com.example.pokemon.services;
 
-
 import com.example.pokemon.model.Electric;
+import com.example.pokemon.model.Grass;
 import com.example.pokemon.repository.ElectricRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
-
 @Service
 @Transactional
 public class ElectricServices {
     @Autowired
-    private ElectricRepository  repositorio;
+    private ElectricRepository repositorio;
 
     public ElectricServices() {
     }
@@ -24,16 +24,19 @@ public class ElectricServices {
 
     public Electric actualizar(Electric electricActualizar) {
 
-        Electric electricActual = repositorio.findById(electricActualizar.getIdPokemon()).get();
+        Electric electricActual = repositorio.findById(electricActualizar.getIdElectric()).get();
 
         //peliculaActual.setIdPelicula(peliculaActualizar.getIdPelicula());
-        electricActual.setNombre(electricActualizar.getNombre());
-        electricActual.setImg(electricActualizar.getImg());
-        electricActual.setClase(electricActualizar.getClase());
-        electricActual.setRegion(electricActualizar.getRegion());
-        electricActual.setCategoria(electricActualizar.getCategoria());
-        electricActual.setAtaque(electricActualizar.getAtaque());
-        electricActual.setVida(electricActualizar.getVida());
+        electricActual.setName(electricActualizar.getName());
+        electricActual.setEvolution(electricActualizar.getEvolution());
+        electricActual.setPreevolution(electricActualizar.getPreevolution());
+        electricActual.setHp(electricActualizar.getHp());
+        electricActual.setAttack(electricActualizar.getAttack());
+        electricActual.setDefense(electricActualizar.getDefense());
+        electricActual.setSpattack(electricActualizar.getSpattack());
+        electricActual.setSpdefense(electricActualizar.getSpdefense());
+        electricActual.setSpeed(electricActualizar.getSpeed());
+        electricActual.setTotal(electricActualizar.getTotal());
         Electric electricActualizado = repositorio.save(electricActual); // registra en base de datos
         return electricActualizado;
     }
@@ -50,4 +53,3 @@ public class ElectricServices {
         repositorio.deleteById(id);
     }
 }
-

@@ -1,5 +1,4 @@
 package com.example.pokemon.model;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -7,15 +6,19 @@ import java.util.Objects;
 @Entity
 @Table(name="grass")
 @NamedQueries({
-        @NamedQuery(name = "Fire.findAdll", query = "SELECT p FROM Grass p")
-        ,@NamedQuery(name = "Fire.findByIdpokemon", query="SELECT p FROM Grass p WHERE p.idPokemon = :idPokemon")
-        ,@NamedQuery(name = "Fire.findByNombre", query="SELECT p FROM Grass p WHERE p.nombre = :nombre")
-        ,@NamedQuery(name = "Fire.findByImg", query="SELECT p FROM Grass p WHERE p.img = :img")
-        ,@NamedQuery(name = "Fire.findByClase", query="SELECT p FROM Grass p WHERE p.clase = :clase")
-        ,@NamedQuery(name = "Fire.findByRegion", query="SELECT p FROM Grass p WHERE p.region = :region")
-        ,@NamedQuery(name = "Fire.findByCategoria", query="SELECT p FROM Grass p WHERE p.categoria = :categoria")
-        ,@NamedQuery(name = "Fire.findByAtaque", query="SELECT p FROM Grass p WHERE p.ataque = :ataque")
-        ,@NamedQuery(name = "Fire.findByVida", query="SELECT p FROM Grass p WHERE p.vida = :vida")
+        @NamedQuery(name = "Grass.findAdll", query = "SELECT p FROM Grass p")
+        ,@NamedQuery(name = "Grass.findByIdgrass", query="SELECT p FROM Grass p WHERE p.idGrass = :idGrass")
+        ,@NamedQuery(name = "Grass.findByName", query="SELECT p FROM Grass p WHERE p.name = :name")
+        ,@NamedQuery(name = "Grass.findByEvolution", query="SELECT p FROM Grass p WHERE p.evolution = :evolution")
+        ,@NamedQuery(name = "Grass.findByPreevolution", query="SELECT p FROM Grass p WHERE p.preevolution = :preevolution")
+        ,@NamedQuery(name = "Grass.findByHp", query="SELECT p FROM Grass p WHERE p.hp = :hp")
+        ,@NamedQuery(name = "Grass.findByAttack", query="SELECT p FROM Grass p WHERE p.attack = :attack")
+        ,@NamedQuery(name = "Grass.findByDefense", query="SELECT p FROM Grass p WHERE p.defense = :defense")
+        ,@NamedQuery(name = "Grass.findBySpattack", query="SELECT p FROM Grass p WHERE p.spattack = :spattack")
+        ,@NamedQuery(name = "Grass.findBySpdefense", query="SELECT p FROM Grass p WHERE p.spdefense = :spdefense")
+        ,@NamedQuery(name = "Grass.findBySpeed", query="SELECT p FROM Grass p WHERE p.speed = :speed")
+        ,@NamedQuery(name = "Grass.findByTotal", query="SELECT p FROM Grass p WHERE p.total = :total")
+
 
 })
 public class Grass implements Serializable {
@@ -23,139 +26,181 @@ public class Grass implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false) //representa que este campo es obligatorio en base de datos
-    @Column(name ="idPokemon")
-    private Integer idPokemon;
+    @Column(name = "idGrass")
+    private Integer idGrass;
 
     @Basic(optional = false)
-    @Column(name ="nombre")
-    private String nombre;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name="img")
-    private String img;
+    @Column(name = "evolution")
+    private String evolution;
 
-    @Column(name="clase")
-    private String clase;
+    @Column(name = "preevolution")
+    private String preevolution;
 
-    @Column(name="region")
-    private String region;
+    @Column(name = "hp")
+    private Integer hp;
 
-    @Column(name="categoria")
-    private String categoria;
+    @Column(name = "attack")
+    private Integer attack;
+    
+    @Column(name = "defense")
+    private Integer defense;
+    
+    @Column(name = "spattack")
+    private Integer spattack;
+    
+    @Column(name = "spdefense")
+    private Integer spdefense;
+    
+    @Column(name = "speed")
+    private Integer speed;
+    
+    @Column(name = "total")
+    private Integer total;
 
-    @Column(name="ataque")
-    private Integer ataque;
-    @Column(name="vida")
-    private Integer vida;
-
-    public Grass(){
-
+    public Grass() {
+    }
+    
+    public Grass(Integer idGrass, String nombre) {
+        this.idGrass = idGrass;
+        this.name = nombre;
     }
 
-    public Grass(Integer idPokemon, String nombre) {
-        this.idPokemon = idPokemon;
-        this.nombre = nombre;
-    }
+	public Grass(String name, String evolution, String preevolution, Integer hp, Integer attack, Integer defense,
+			Integer spattack, Integer spdefense, Integer speed, Integer total) {
+		super();
+		this.name = name;
+		this.evolution = evolution;
+		this.preevolution = preevolution;
+		this.hp = hp;
+		this.attack = attack;
+		this.defense = defense;
+		this.spattack = spattack;
+		this.spdefense = spdefense;
+		this.speed = speed;
+		this.total = total;
+	}
 
-    public Grass(String nombre, String img, String clase, String region, String categoria, Integer ataque,
-                Integer vida) {
-        super();
-        this.nombre = nombre;
-        this.img = img;
-        this.clase = clase;
-        this.region = region;
-        this.categoria = categoria;
-        this.ataque = ataque;
-        this.vida = vida;
-    }
+	public Integer getIdGrass() {
+		return idGrass;
+	}
 
-    public Integer getIdPokemon() {
-        return idPokemon;
-    }
+	public void setIdGrass(Integer idGrass) {
+		this.idGrass = idGrass;
+	}
 
-    public void setIdPokemon(Integer idPokemon) {
-        this.idPokemon = idPokemon;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public String getEvolution() {
+		return evolution;
+	}
 
-    public String getImg() {
-        return img;
-    }
+	public void setEvolution(String evolution) {
+		this.evolution = evolution;
+	}
 
-    public void setImg(String img) {
-        this.img = img;
-    }
+	public String getPreevolution() {
+		return preevolution;
+	}
 
-    public String getClase() {
-        return clase;
-    }
+	public void setPreevolution(String preevolution) {
+		this.preevolution = preevolution;
+	}
 
-    public void setClase(String clase) {
-        this.clase = clase;
-    }
+	public Integer getHp() {
+		return hp;
+	}
 
-    public String getRegion() {
-        return region;
-    }
+	public void setHp(Integer hp) {
+		this.hp = hp;
+	}
 
-    public void setRegion(String region) {
-        this.region = region;
-    }
+	public Integer getAttack() {
+		return attack;
+	}
 
-    public String getCategoria() {
-        return categoria;
-    }
+	public void setAttack(Integer attack) {
+		this.attack = attack;
+	}
 
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
+	public Integer getDefense() {
+		return defense;
+	}
 
-    public Integer getAtaque() {
-        return ataque;
-    }
+	public void setDefense(Integer defense) {
+		this.defense = defense;
+	}
 
-    public void setAtaque(Integer ataque) {
-        this.ataque = ataque;
-    }
+	public Integer getSpattack() {
+		return spattack;
+	}
 
-    public Integer getVida() {
-        return vida;
-    }
+	public void setSpattack(Integer spattack) {
+		this.spattack = spattack;
+	}
 
-    public void setVida(Integer vida) {
-        this.vida = vida;
-    }
+	public Integer getSpdefense() {
+		return spdefense;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idPokemon);
-    }
+	public void setSpdefense(Integer spdefense) {
+		this.spdefense = spdefense;
+	}
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Grass other = (Grass) obj;
-        return Objects.equals(idPokemon, other.idPokemon);
-    }
+	public Integer getSpeed() {
+		return speed;
+	}
 
-    @Override
-    public String toString() {
-        return "Grass [idPokemon=" + idPokemon + "]";
-    }
+	public void setSpeed(Integer speed) {
+		this.speed = speed;
+	}
 
+	public Integer getTotal() {
+		return total;
+	}
+
+	public void setTotal(Integer total) {
+		this.total = total;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idGrass);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Grass other = (Grass) obj;
+		return Objects.equals(idGrass, other.idGrass);
+	}
+
+	@Override
+	public String toString() {
+		return "Grass [idGrass=" + idGrass + "]";
+	}
+    
     public Grass buscarPorID(int i) {
         return null;
     }
-
+    
+    
+    
+    
+    
+    
+    
 }

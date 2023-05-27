@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wellcome Admin</title>
+    <title>Wellcome</title>
     <!--LINKS CSS-->
-    <link rel="stylesheet" href="../static/css/bienvenida.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <style>
+<style>
 .navbar{
   background-color: #17252B;
   opacity: 0.9;
@@ -33,30 +32,6 @@
   background-color: rgb(55, 91, 112);
 }
 
-.card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            width: 200px;
-            margin: 16px;
-            border-radius: 5px;
-            overflow: hidden;
-            background-color: #f1f1f1;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
-
-        .card img {
-            width: 100%;
-            height: auto;
-        }
-
-        .card-title {
-            padding: 16px;
-            text-align: center;
-        }
-
 #bg-video {
     position: fixed;
     left: 50%;
@@ -67,7 +42,7 @@
     min-height: 100%;
     transform: translateX(-50%) translateY(-50%);
     z-index: -100;
-    background-image: url();
+    background-image: url("https://res.cloudinary.com/tecnologi-zifrikc/video/upload/v1685120606/partners-goodbye-pokemon-moewalls.com_wjg6yy.mp4");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -78,39 +53,36 @@
 <video autoplay muted loop id="bg-video">
     <source src="https://res.cloudinary.com/tecnologi-zifrikc/video/upload/v1685120606/partners-goodbye-pokemon-moewalls.com_wjg6yy.mp4" type="video/mp4">
 </video>
-<nav class="navbar navbar-expand-md " >
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark" aria-label="Fourth navbar example">
     <div class="container-fluid">
-        <img src="../static/assets/Pokeball-PNG-Photos.png" width="32" height="32" >
+        <img src="assets/Pokeball-PNG-Photos.png" width="32" height="32" >
         <a class="navbar-brand col-lg-6  px-5 me-auto" th:href="@{/bienvenida}">Pokemon</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" th:href="@{/aquatics/tolistAquatic}" >Acuático</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/grasses/tolistGrass}" >Planta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{/electrics/tolistElectric}">Electricos</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tierra</a>
+                    <a class="nav-link"   th:href="@{/fires/tolistFire}">Fuego</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{/fires/tolistFire}">Fuego</a>
+                    <a class="nav-link" th:href="@{/waters/tolistWater}" href="#">Agua</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Legendarios</a>
+                    <a class="nav-link"th:href="@{/electrics/tolistElectric}" >Eléctrico</a>
                 </li>
 
-                <li class="nav-item col-lg-2">
-                    <a class="nav-link" href="#">VS</a>
+                <li class="nav-item col-lg-3">
+                    <a class="nav-link" href="#">Pokédex</a>
                 </li>
-
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
@@ -125,96 +97,14 @@
     </div>
 </nav>
 
-<div class="img text-center">
-    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685120213/logo_etrvz4.gif">
+
+
+<div class="container text-center mt-5" style="padding-top: 50px;">
+    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685120213/logo_etrvz4.gif"width="600" height="250">
 </div>
 
-<section class="contenido mt-3  bg-danger"style="border-radius: 15px;">
-    <div class="mostrador" id="mostrador">
-        <div class="fila">
-            <div class="item" onclick="cargar(this)">
-                <div class="contenedor-foto">
-                    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685064079/Squirtle_l5vgm0.gif" alt="">
-                </div>
-                <p class="descripcion">SQUIRTLE</p>
-                <span class="precio"> ATAQUE $ 1.300</span>
-            </div>
-            <div class="item" onclick="cargar(this)">
-                <div class="contenedor-foto">
-                    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685116664/bulbasaur_pz7osp.gif" alt="">
-                </div>
-                <p class="descripcion" id>BULBASAUR</p>
-                <span class="precio">ATAQUE $ 1.800</span>
-            </div>
-            <div class="item" onclick="cargar(this)">
-                <div class="contenedor-foto">
-                    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685116663/charmander_qykdci.gif" alt="">
-                </div>
-                <p class="descripcion">CHARMANDER
-                </p>
-                <span class="precio"> ATAQUE$ 3.600</span>
-            </div>
-            <div class="item" onclick="cargar(this)">
-                <div class="contenedor-foto">
-                    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685116663/charizard_dehrss.gif" alt="">
-                </div>
-                <p class="descripcion">CHARIZARD</p>
-                <span class="precio">ATAQUE $ 1.800</span>
-            </div>
-        </div>
-        <div class="fila">
-            <div class="item" onclick="cargar(this)">
-                <div class="contenedor-foto">
-                    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685116664/blastoise_tw4vpj.gif" alt="">
-                </div>
-                <p class="descripcion">BLASTOISE</p>
-                <span class="precio">ATAQUE $ 130</span>
-            </div>
-            <div class="item" onclick="cargar(this)">
-                <div class="contenedor-foto">
-                    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685116665/venasaur_pdkweo.gif" alt="">
-                </div>
-                <p class="descripcion">VEANASAUR</p>
-                <span class="precio"> ATAQUE $ 2.000</span>
-            </div>
-            <div class="item" onclick="cargar(this)">
-                <div class="contenedor-foto">
-                    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685129477/source_zdvgtc.gif" alt="">
-                </div>
-                <p class="descripcion">PIKACHU</p>
-                <span class="precio">ATAQUE de $ 2.500</span>
-            </div>
-            <div class="item" onclick="cargar(this)">
-                <div class="contenedor-foto">
-                    <img src="https://res.cloudinary.com/tecnologi-zifrikc/image/upload/v1685129480/BRzH_mhdg1i.gif" alt="">
-                </div>
-                <p class="descripcion">ZABLEYE</p>
-                <span class="precio">ATAQUE  $ 1.800</span>
-            </div>
-        </div>
-    </div>
-    <!-- pokemon seleccionado-->
-    <div class="seleccion" id="seleccion">
-        <div class="cerrar" onclick="cerrar()">
-            &#x2715
-        </div>
-        <div class="info">
-            <img src="img/1.png" alt="" id="img">
-            <h2 id="modelo">Zableye</h2>
-            <p id="descripcion">Descripción Modelo 1</p>
-
-            <span class="precio" id="precio">$ 130</span>
-
-            <div class="fila">
-
-                <button>VER MAS</button>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-<script src="../static/js/script.js"></script>
 </body>
 </html>

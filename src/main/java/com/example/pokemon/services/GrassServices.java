@@ -1,6 +1,8 @@
 package com.example.pokemon.services;
 
+
 import com.example.pokemon.model.Grass;
+
 import com.example.pokemon.repository.GrassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,15 +25,19 @@ public class GrassServices {
 
     public Grass actualizar(Grass grassActualizar) {
 
-        Grass grassActual = repositorio.findById(grassActualizar.getIdPokemon()).get();
+        Grass grassActual = repositorio.findById(grassActualizar.getIdGrass()).get();
 
-        grassActual.setNombre(grassActualizar.getNombre());
-        grassActual.setImg(grassActualizar.getImg());
-        grassActual.setClase(grassActualizar.getClase());
-        grassActual.setRegion(grassActualizar.getRegion());
-        grassActual.setCategoria(grassActualizar.getCategoria());
-        grassActual.setAtaque(grassActualizar.getAtaque());
-        grassActual.setVida(grassActualizar.getVida());
+        //peliculaActual.setIdPelicula(peliculaActualizar.getIdPelicula());
+        grassActual.setName(grassActualizar.getName());
+        grassActual.setEvolution(grassActualizar.getEvolution());
+        grassActual.setPreevolution(grassActualizar.getPreevolution());
+        grassActual.setHp(grassActualizar.getHp());
+        grassActual.setAttack(grassActualizar.getAttack());
+        grassActual.setDefense(grassActualizar.getDefense());
+        grassActual.setSpattack(grassActualizar.getSpattack());
+        grassActual.setSpdefense(grassActualizar.getSpdefense());
+        grassActual.setSpeed(grassActualizar.getSpeed());
+        grassActual.setTotal(grassActualizar.getTotal());
         Grass grassActualizado = repositorio.save(grassActual); // registra en base de datos
         return grassActualizado;
     }

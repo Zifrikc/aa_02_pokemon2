@@ -1,7 +1,10 @@
 package com.example.pokemon.controllers.controllersweb;
 
+import com.example.pokemon.model.Fire;
+import com.example.pokemon.model.Grass;
 import com.example.pokemon.model.Water;
-import com.example.pokemon.services.WaterServices;
+import com.example.pokemon.services.GrassServices;
+import com.example.pokemon.services.WaterServioces;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,16 +19,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/waters")
 public class WaterWeb {
-    @Autowired
-    private WaterServices servicio;
+    @Autowired // Inyección de Depencia
+    private WaterServioces servicio;
 
     @RequestMapping("/tolistWater")
     public String tolistWater (Model model) {
 
-        List<Water> listWaters = servicio.buscarTodo();
-        System.out.println("List Waters: " + listWaters);
-        model.addAttribute("listWaters", listWaters);
-        return "/modelWaters/tolistWaters";
+        List<Water> listWater= servicio.buscarTodo();
+        System.out.println("List Water: " + listWater);
+        model.addAttribute("listWater", listWater);
+        return "/modelWaters/tolistWater";
     }
 
     @RequestMapping("/nuevo")
@@ -35,11 +38,13 @@ public class WaterWeb {
         return "/modelWaters/newWater";
     }
 
+
     @RequestMapping(value ="/guardar", method= RequestMethod.POST)
     public String createWater(@ModelAttribute("water") Water water) {
         servicio.crear(water);
         return "redirect:/waters/tolistWater";
     }
+
 
     @RequestMapping(value ="/actualizar/{id}")
     public ModelAndView editWater(@PathVariable(name="id") int id) {
@@ -49,9 +54,11 @@ public class WaterWeb {
         return mav;
     }
 
+
     @RequestMapping(value = "/eliminar/{id}")
     public String deleteWater(@PathVariable(name="id") int id) {
         servicio.borrarPorId(id);
         return "redirect:/waters/tolistWater";
     }
+
 }

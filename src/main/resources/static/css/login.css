@@ -8,8 +8,8 @@
 
 .bg{
 
-    background-image: url('https://res.cloudinary.com/tecnologi-zifrikc/video/upload/v1684913967/bathhouse-spirited-away-moewalls.com_km1wa2.mp4');
-
+   /* background-image: url("https://res.cloudinary.com/tecnologi-zifrikc/video/upload/v1684913967/bathhouse-spirited-away-moewalls.com_km1wa2.mp4");*/
+    background-color:rgb(222, 28, 252)
 }
 .row{
     position: relative;

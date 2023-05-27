@@ -16,15 +16,15 @@ import java.util.List;
 @Controller
 @RequestMapping("/grasses")
 public class GrassWeb {
-    @Autowired
+    @Autowired // Inyección de Depencia
     private GrassServices servicio;
 
     @RequestMapping("/tolistGrass")
     public String tolistGrass (Model model) {
 
-        List<Grass> listGrasses = servicio.buscarTodo();
-        System.out.println("List Grasses: " + listGrasses);
-        model.addAttribute("listGrasses", listGrasses);
+        List<Grass> listGrass= servicio.buscarTodo();
+        System.out.println("List Grass: " + listGrass);
+        model.addAttribute("listGrass", listGrass);
         return "/modelGrasses/tolistGrass";
     }
 
@@ -32,14 +32,16 @@ public class GrassWeb {
     public String newGrass(Model model) {
         Grass grass = new Grass ();
         model.addAttribute("grass",grass);
-        return "/modelGrass/newGrass";
+        return "/modelGrasses/newGrass";
     }
+
 
     @RequestMapping(value ="/guardar", method= RequestMethod.POST)
     public String createGrass(@ModelAttribute("grass") Grass grass) {
         servicio.crear(grass);
         return "redirect:/grasses/tolistGrass";
     }
+
 
     @RequestMapping(value ="/actualizar/{id}")
     public ModelAndView editGrass(@PathVariable(name="id") int id) {
@@ -49,9 +51,11 @@ public class GrassWeb {
         return mav;
     }
 
+
     @RequestMapping(value = "/eliminar/{id}")
     public String deleteGrass(@PathVariable(name="id") int id) {
         servicio.borrarPorId(id);
         return "redirect:/grasses/tolistGrass";
     }
+
 }
